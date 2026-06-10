@@ -1,0 +1,113 @@
+======================================
+PANDUAN INSTALASI CEPAT SIKPU
+(Sistem Informasi Kunjungan Pasien UKS)
+======================================
+
+1. COPY PROJECT KE FOLDER SERVER
+   - Pindahkan folder "sikpu" ke:
+     * XAMPP  : C:\xampp\htdocs\sikpu
+     * Laragon: C:\laragon\www\sikpu
+
+2. JALANKAN SERVER
+   - Buka XAMPP / Laragon
+   - Aktifkan:
+     ✓ Apache
+     ✓ MySQL
+
+3. IMPORT DATABASE
+   - Buka browser: http://localhost/phpmyadmin
+   - Klik "New" → buat database: sikpu
+   - Pilih database tersebut
+   - Tab "Import"
+   - Pilih file: database.sql
+   - Klik "Go"
+
+4. KONFIGURASI DATABASE
+   - Buka file: config/koneksi.php
+   - Sesuaikan jika perlu:
+
+     host     : localhost
+     username : root
+     password : (kosong / sesuai setting)
+     database : sikpu
+
+5. AKSES APLIKASI
+   - Buka di browser:
+     http://localhost/sikpu/
+
+6. LOGIN PERTAMA
+   - Username: admin
+   - Password: admin123
+
+7. KEAMANAN (WAJIB)
+   - Disarankan menggunakan password_hash()
+   - Jangan gunakan password plain text di production
+
+======================================
+STRUKTUR FOLDER
+======================================
+
+sikpu/
+├── index.php
+├── database.sql
+├── README.md
+│
+├── config/
+│   └── koneksi.php
+│
+├── auth/
+│   ├── login.php
+│   ├── proses_login.php
+│   └── logout.php
+│
+├── dashboard/
+│   ├── index.php
+│   └── rekap.php
+│
+├── pasien/
+│   ├── index.php
+│   ├── tambah.php
+│   ├── simpan.php
+│   ├── edit.php
+│   ├── update.php
+│   ├── hapus.php
+│   └── riwayat.php
+│
+└── layout/
+    └── sidebar.php
+
+======================================
+FITUR APLIKASI
+======================================
+
+✓ Sistem Login (Session + Password Hash)
+✓ Dashboard Statistik
+✓ Grafik Kunjungan (7 Hari)
+✓ CRUD Data Pasien
+✓ Pencarian Data
+✓ Riwayat Kunjungan
+✓ Rekap Bulanan
+✓ Sidebar Navigation (UI Modern)
+✓ Responsive Design
+
+======================================
+TROUBLESHOOTING
+======================================
+
+❌ Login gagal:
+→ Pastikan password sudah di-hash
+→ Gunakan password_verify()
+
+❌ Session error:
+→ Pastikan session_start() ada di semua halaman
+
+❌ Data kosong:
+→ Import ulang database.sql
+
+❌ Koneksi gagal:
+→ Cek config/koneksi.php
+→ Pastikan MySQL aktif
+
+======================================
+Selamat menggunakan SIKPU 🚀
+======================================
